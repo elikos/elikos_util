@@ -1,15 +1,20 @@
-#include "../src/core/Core.h"
-#include "RosInterfaceTest.h"
+#define ROS_INTERFACE_TEST
 
 #include <gtest/gtest.h>
 
+#include "../src/core/Core.h"
+#include "RosInterfaceTest.h"
+
+
 TEST(CoreTests, update)
 {
-    RosInterfaceTest interface;
-    bool wasSpinOnceCalled = false;
-    interface.spinOnceCallback_ = [&wasSpinOnceCalled](){wasSpinOnceCalled = true;};
+    RosInterface* rosInterface = RosInterface::get(0, nullptr, "");
+    AllFunctions* rosInterfaceCallbacks = getRosInterfaceCallbacks(rosInterface);
 
-    Core core(&interface);
+    bool wasSpinOnceCalled = false;
+    rosInterfaceCallbacks->spinOnce = [&wasSpinOnceCalled](){wasSpinOnceCalled = true;};
+
+    Core core(rosInterface);
     core.update();
     ASSERT_TRUE(wasSpinOnceCalled);
 }

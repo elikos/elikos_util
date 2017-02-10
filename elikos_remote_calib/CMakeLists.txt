@@ -8,6 +8,8 @@ find_package(catkin REQUIRED COMPONENTS
   elikos_ros
   roscpp
   std_msgs
+  rqt_gui
+  rqt_gui_cpp
 )
 
 ## C++ 11
@@ -15,7 +17,12 @@ add_definitions(-std=c++11)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
-
+if("${qt_gui_cpp_USE_QT_MAJOR_VERSION}" STREQUAL "5")
+  find_package(Qt5Widgets REQUIRED)
+else()
+  find_package(Qt4 COMPONENTS QtCore QtGui REQUIRED)
+  include(${QT_USE_FILE})
+endif()
 
 ## Uncomment this if the package has a setup.py. This macro ensures
 ## modules and global scripts declared therein get installed
@@ -104,10 +111,29 @@ add_definitions(-std=c++11)
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES elikos_remote_calib
-#  CATKIN_DEPENDS elikos_ros roscpp std_msgs
+  LIBRARIES ${PROJECT_NAME}
+  CATKIN_DEPENDS elikos_ros roscpp std_msgs rqt_gui_cpp
 #  DEPENDS system_lib
 )
+
+set(elikos_remote_calib_SRCS
+  src/gui/CalibElikosDetection.cpp
+)
+
+set(elikos_remote_calib_HDRS
+  src/gui/CalibElikosDetection.h
+)
+
+set(elikos_remote_calib_UIS
+)
+
+if("${qt_gui_cpp_USE_QT_MAJOR_VERSION}" STREQUAL "5")
+  qt5_wrap_cpp(elikos_remote_calib_MOCS ${elikos_remote_calib_HDRS})
+  qt5_wrap_cpp(elikos_remote_calib_UIS_H ${elikos_remote_calib_UIS})
+else()
+  qt4_wrap_cpp(elikos_remote_calib_MOCS ${elikos_remote_calib_HDRS})
+  qt4_wrap_cpp(elikos_remote_calib_UIS_H ${elikos_remote_calib_UIS})
+endif()
 
 ###########
 ## Build ##
@@ -117,13 +143,16 @@ catkin_package(
 ## Your package locations should be listed before other locations
 # include_directories(include)
 include_directories(
+  ${CMAKE_CURRENT_BINARY_DIR}/..
   ${catkin_INCLUDE_DIRS}
 )
 
 ## Declare a C++ library
-# add_library(elikos_remote_calib
-#   src/${PROJECT_NAME}/elikos_remote_calib.cpp
-# )
+add_library(${PROJECT_NAME}
+  ${elikos_remote_calib_SRCS}
+  ${elikos_remote_calib_MOCS}
+  ${elikos_remote_calib_UIS_H}
+)
 
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
@@ -131,23 +160,26 @@ include_directories(
 # add_dependencies(elikos_remote_calib ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Declare a C++ executable
-add_executable(elikos_remote_calib 
-  src/RemoteCalib.cpp
-  src/core/Core.h
-  src/core/Core.cpp
-  src/core/RosInterface.h
-  src/core/RosInterfaceImpl.h
-  src/core/RosInterfaceImpl.cpp
-)
+# add_executable(elikos_remote_calib 
+#  src/RemoteCalib.cpp
+#  src/core/Core.h
+#  src/core/Core.cpp
+#)
 
 ## Add cmake target dependencies of the executable
 ## same as for the library above
 # add_dependencies(elikos_remote_calib_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
-# target_link_libraries(elikos_remote_calib_node
-#   ${catkin_LIBRARIES}
-# )
+target_link_libraries(elikos_remote_calib
+  ${catkin_LIBRARIES}
+)
+
+if("${qt_gui_cpp_USE_QT_MAJOR_VERSION}" STREQUAL "5")
+  target_link_libraries(${PROJECT_NAME} Qt5::Widgets)
+else()
+  target_link_libraries(${PROJECT_NAME} ${QT_QTCORE_LIBRARY} ${QT_QTGUI_LIBRARY})
+endif()
 
 #############
 ## Install ##
@@ -189,14 +221,14 @@ add_executable(elikos_remote_calib
 #############
 
 ## Add gtest based cpp test target and link libraries
-catkin_add_gtest(${PROJECT_NAME}-test 
-    test/utest.cpp
-    test/RosInterfaceTest.cpp
-    test/RosInterfaceTest.h
-    src/core/Core.cpp
-    src/core/Core.h
-    src/core/RosInterface.h
-)
+# catkin_add_gtest(${PROJECT_NAME}-test 
+#    test/utest.cpp
+#    test/RosInterfaceTest.cpp
+#    test/RosInterfaceTest.h
+#    src/core/Core.cpp
+#    src/core/Core.h
+#    src/core/RosInterface.h
+#)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()

@@ -4,15 +4,21 @@
 #ifndef RM_CORE_H
 #define RM_CORE_H
 
-#include "RosInterface.h"
+#include <ros/ros.h>
+#include <string>
+#include <std_msgs/String.h>
+#include <elikos_ros/CalibPreprocessing.h>
 
 class Core{
 public:
-    Core(RosInterface* interfaceRos);
+    Core();
     void update();
 
+    void sendCalibrationData(int gaussianKernelSize, int gaussianRepetitions);
+
 private:
-    RosInterface* interfaceRos_;
+    ros::NodeHandle nodeHandle_;
+    ros::Publisher publisher_;
 };
 
 #endif

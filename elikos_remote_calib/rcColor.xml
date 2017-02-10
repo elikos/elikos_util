@@ -1,0 +1,12 @@
+<library path="lib/libelikos_remote_calib">
+    <class name="elikos_remote_calib/remote_calib" type="remote_calib::CalibElikosDetection" base_class_type="rqt_gui_cpp::Plugin">
+        <description>
+            Calibration d'elikos_detection
+        </description>
+        <qtgui>
+            <label>This is a test label lol </label>
+            <icon type="theme">system-help</icon>
+            <statustip>blablabla statustip</statustip>
+        </qtgui>
+    </class>
+</library>
