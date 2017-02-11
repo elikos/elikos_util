@@ -17,12 +17,9 @@ add_definitions(-std=c++11)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
-if("${qt_gui_cpp_USE_QT_MAJOR_VERSION}" STREQUAL "5")
-  find_package(Qt5Widgets REQUIRED)
-else()
-  find_package(Qt4 COMPONENTS QtCore QtGui REQUIRED)
-  include(${QT_USE_FILE})
-endif()
+find_package(Qt4 COMPONENTS QtCore QtGui REQUIRED)
+include(${QT_USE_FILE})
+
 
 ## Uncomment this if the package has a setup.py. This macro ensures
 ## modules and global scripts declared therein get installed
@@ -100,6 +97,25 @@ endif()
 #   cfg/DynReconf2.cfg
 # )
 
+set(elikos_remote_calib_SRCS
+  src/gui/CalibElikosDetection.cpp
+  src/gui/CalibWidget.cpp
+)
+
+set(elikos_remote_calib_HDRS
+  include/elikos_remote_calib/CalibElikosDetection.h
+  include/elikos_remote_calib/CalibWidget.h
+)
+
+set(elikos_remote_calib_UIS
+  resource/calib_elikos_detection.ui
+)
+
+set(elikos_remote_calib_INCLUDE_DIRECTORIES
+  include
+  ${CMAKE_CURRENT_BINARY_DIR}/..
+)
+
 ###################################
 ## catkin specific configuration ##
 ###################################
@@ -110,30 +126,18 @@ endif()
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
-#  INCLUDE_DIRS include
+  INCLUDE_DIRS ${elikos_remote_calib_INCLUDE_DIRECTORIES}
   LIBRARIES ${PROJECT_NAME}
   CATKIN_DEPENDS elikos_ros roscpp std_msgs rqt_gui_cpp
 #  DEPENDS system_lib
 )
+catkin_python_setup()
 
-set(elikos_remote_calib_SRCS
-  src/gui/CalibElikosDetection.cpp
-)
 
-set(elikos_remote_calib_HDRS
-  src/gui/CalibElikosDetection.h
-)
 
-set(elikos_remote_calib_UIS
-)
+qt4_wrap_cpp(elikos_remote_calib_MOCS ${elikos_remote_calib_HDRS})
+qt4_wrap_ui(elikos_remote_calib_UIS_H ${elikos_remote_calib_UIS})
 
-if("${qt_gui_cpp_USE_QT_MAJOR_VERSION}" STREQUAL "5")
-  qt5_wrap_cpp(elikos_remote_calib_MOCS ${elikos_remote_calib_HDRS})
-  qt5_wrap_cpp(elikos_remote_calib_UIS_H ${elikos_remote_calib_UIS})
-else()
-  qt4_wrap_cpp(elikos_remote_calib_MOCS ${elikos_remote_calib_HDRS})
-  qt4_wrap_cpp(elikos_remote_calib_UIS_H ${elikos_remote_calib_UIS})
-endif()
 
 ###########
 ## Build ##
@@ -143,7 +147,7 @@ endif()
 ## Your package locations should be listed before other locations
 # include_directories(include)
 include_directories(
-  ${CMAKE_CURRENT_BINARY_DIR}/..
+  ${elikos_remote_calib_INCLUDE_DIRECTORIES}
   ${catkin_INCLUDE_DIRS}
 )
 
@@ -171,15 +175,11 @@ add_library(${PROJECT_NAME}
 # add_dependencies(elikos_remote_calib_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
-target_link_libraries(elikos_remote_calib
+target_link_libraries(${PROJECT_NAME}
   ${catkin_LIBRARIES}
+  ${QT_QTCORE_LIBRARY}
+  ${QT_QTGUI_LIBRARY}
 )
-
-if("${qt_gui_cpp_USE_QT_MAJOR_VERSION}" STREQUAL "5")
-  target_link_libraries(${PROJECT_NAME} Qt5::Widgets)
-else()
-  target_link_libraries(${PROJECT_NAME} ${QT_QTCORE_LIBRARY} ${QT_QTGUI_LIBRARY})
-endif()
 
 #############
 ## Install ##

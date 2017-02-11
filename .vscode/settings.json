@@ -10,6 +10,9 @@
         "*hpp*hpp*h*h*h*h*h*htuple": "cpp",
         "*h*hpp*hpp*hpp*hpp*hpp*hpp*hpp*hpp*hpp*hpp*hpp*hpp*hpp*hpp*harray": "cpp",
         "array": "cpp",
-        "*hpp*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*hpp*hpp*h*h*h*h*h*hpp*hpp*hpp*h*h*h*h*h*h*h*h*harray": "cpp"
-    }
+        "*hpp*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*hpp*hpp*h*h*h*h*h*hpp*hpp*hpp*h*h*h*h*h*h*h*h*harray": "cpp",
+        "*.ui": "xml",
+        "QPushButton": "cpp"
+    },
+    "python.linting.pylintEnabled": false
 }

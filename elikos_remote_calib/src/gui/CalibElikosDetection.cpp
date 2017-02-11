@@ -1,5 +1,7 @@
-#include "CalibElikosDetection.h"
+#include <elikos_remote_calib/CalibElikosDetection.h>
 #include <pluginlib/class_list_macros.h>
+#include <QStringList>
+#include <QPushButton>
 
 namespace remote_calib{
 
@@ -10,9 +12,18 @@ CalibElikosDetection::CalibElikosDetection()
     setObjectName("tralala");
 }
 
+CalibElikosDetection::~CalibElikosDetection()
+{
+    //Normally rqt deletes the widget_
+}
+
 void CalibElikosDetection::initPlugin(qt_gui_cpp::PluginContext& context)
 {
+    QStringList argv = context.argv();
+    widget_ = new QWidget();
 
+    ui_.setupUi(widget_);
+    context.addWidget(widget_);
 }
 
 void CalibElikosDetection::shutdownPlugin()
