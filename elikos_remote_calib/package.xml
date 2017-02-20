@@ -56,6 +56,6 @@
   <export>
     <!-- Other tools can request additional information be placed here -->
     <!-- Registers the remote_calib_color plugin -->
-    <rqt_gui plugin="${prefix}/plugins/rcColor.xml"/>
+    <rqt_gui plugin="${prefix}/plugins/RemoteCalib.xml"/>
   </export>
 </package>

@@ -98,17 +98,19 @@ include(${QT_USE_FILE})
 # )
 
 set(elikos_remote_calib_SRCS
-  src/gui/CalibElikosDetection.cpp
+  src/gui/RemoteCalib.cpp
   src/gui/CalibWidget.cpp
+  src/core/Core.cpp
 )
 
 set(elikos_remote_calib_HDRS
-  include/elikos_remote_calib/CalibElikosDetection.h
+  include/elikos_remote_calib/RemoteCalib.h
   include/elikos_remote_calib/CalibWidget.h
+  include/elikos_remote_calib/Core.h
 )
 
 set(elikos_remote_calib_UIS
-  resource/calib_elikos_detection.ui
+  resource/calib_main.ui
 )
 
 set(elikos_remote_calib_INCLUDE_DIRECTORIES
@@ -164,11 +166,9 @@ add_library(${PROJECT_NAME}
 # add_dependencies(elikos_remote_calib ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Declare a C++ executable
-# add_executable(elikos_remote_calib 
-#  src/RemoteCalib.cpp
-#  src/core/Core.h
-#  src/core/Core.cpp
-#)
+ add_executable(testA
+  src/Test.cpp
+)
 
 ## Add cmake target dependencies of the executable
 ## same as for the library above
@@ -181,6 +181,9 @@ target_link_libraries(${PROJECT_NAME}
   ${QT_QTGUI_LIBRARY}
 )
 
+target_link_libraries(testA
+  ${catkin_LIBRARIES}
+)
 #############
 ## Install ##
 #############

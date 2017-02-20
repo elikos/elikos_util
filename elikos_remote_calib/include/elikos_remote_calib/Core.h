@@ -8,6 +8,13 @@
 #include <string>
 #include <std_msgs/String.h>
 #include <elikos_ros/CalibPreprocessing.h>
+#include <vector>
+#include <utility>
+
+enum NodeType
+{
+    DETECTION
+};
 
 class Core{
 public:
@@ -15,10 +22,18 @@ public:
     void update();
 
     void sendCalibrationData(int gaussianKernelSize, int gaussianRepetitions);
+    //Retrouve la liste des vecteurs calibrables
+    void getCalibratableNodes(std::vector<std::string>& calibratableNodes);
+    //Rafraichit la liste des noeuds calibrables
+    void refreshCalibratableNodes();
 
 private:
     ros::NodeHandle nodeHandle_;
     ros::Publisher publisher_;
+
+    std::vector<std::pair<NodeType, std::string>> calibratableNodes_;
+
+
 };
 
 #endif
