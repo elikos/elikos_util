@@ -5,11 +5,12 @@ project(elikos_remote_calib)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
-  elikos_ros
   roscpp
   std_msgs
   rqt_gui
   rqt_gui_cpp
+  rqt_image_view
+  elikos_remote_calib_client
 )
 
 ## C++ 11
@@ -100,17 +101,24 @@ include(${QT_USE_FILE})
 set(elikos_remote_calib_SRCS
   src/gui/RemoteCalib.cpp
   src/gui/CalibWidget.cpp
-  src/core/Core.cpp
+  src/gui/NodeCalibWidget.cpp
+  src/gui/CalibDetectionWidget.cpp
+  src/model/Calib.cpp
 )
 
 set(elikos_remote_calib_HDRS
-  include/elikos_remote_calib/RemoteCalib.h
-  include/elikos_remote_calib/CalibWidget.h
-  include/elikos_remote_calib/Core.h
+  include/elikos_remote_calib/gui/RemoteCalib.h
+  include/elikos_remote_calib/gui/CalibWidget.h
+  include/elikos_remote_calib/gui/NodeCalibWidget.h
+  include/elikos_remote_calib/gui/CalibDetectionWidget.h
+  include/elikos_remote_calib/model/Calib.h
+  include/elikos_remote_calib/Observer.h
 )
 
 set(elikos_remote_calib_UIS
   resource/calib_main.ui
+  resource/calib_node.ui
+  resource/calib_detection.ui
 )
 
 set(elikos_remote_calib_INCLUDE_DIRECTORIES
@@ -130,8 +138,8 @@ set(elikos_remote_calib_INCLUDE_DIRECTORIES
 catkin_package(
   INCLUDE_DIRS ${elikos_remote_calib_INCLUDE_DIRECTORIES}
   LIBRARIES ${PROJECT_NAME}
-  CATKIN_DEPENDS elikos_ros roscpp std_msgs rqt_gui_cpp
-#  DEPENDS system_lib
+  CATKIN_DEPENDS roscpp std_msgs rqt_gui_cpp rqt_image_view elikos_remote_calib_client
+  #DEPENDS 
 )
 catkin_python_setup()
 

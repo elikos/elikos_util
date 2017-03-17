@@ -1,4 +1,4 @@
-#include <elikos_remote_calib/RemoteCalib.h>
+#include <elikos_remote_calib/gui/RemoteCalib.h>
 #include <pluginlib/class_list_macros.h>
 #include <QStringList>
 #include <QPushButton>

@@ -1,0 +1,33 @@
+{
+    "files.associations": {
+        "*h*h*h*h*hcstddef": "cpp",
+        "cwchar": "cpp",
+        "cstdlib": "cpp",
+        "cctype": "cpp",
+        "*hcwchar": "cpp",
+        "cstdint": "cpp",
+        "initializer_list": "cpp",
+        "*h*hppcstdio": "cpp",
+        "clocale": "cpp",
+        "*hcstdio": "cpp",
+        "cstdio": "cpp",
+        "*hexception": "cpp",
+        "new": "cpp",
+        "typeinfo": "cpp",
+        "*h*hcmath": "cpp",
+        "*hpp*hpp*hppcstring": "cpp",
+        "ctime": "cpp",
+        "*hctime": "cpp",
+        "stdexcept": "cpp",
+        "*.ui": "xml",
+        "QWidget": "cpp",
+        "ostream": "cpp",
+        "*h*hsstream": "cpp",
+        "*hppunordered_set": "cpp",
+        "unordered_set": "cpp",
+        "*hpp*hpp*hpp*h*h*h*hpp*h*h*h*h*h*h*h*h*h*h*h*h*h*hpp*hppunordered_map": "cpp",
+        "unordered_map": "cpp",
+        "iostream": "cpp",
+        "string": "cpp"
+    }
+}

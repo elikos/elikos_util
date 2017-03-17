@@ -43,7 +43,8 @@
         "*hpp*hpp*hpp*h*h*h*hpp*h*h*h*h*h*h*h*h*h*h*h*h*h*hpp*hppunordered_map": "cpp",
         "unordered_map": "cpp",
         "*h*h*h*hpp*hppslist": "cpp",
-        "list": "cpp"
+        "list": "cpp",
+        "vector": "cpp"
     },
     "python.linting.pylintEnabled": false
 }
