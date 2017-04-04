@@ -28,6 +28,16 @@
         "*hpp*hpp*hpp*h*h*h*hpp*h*h*h*h*h*h*h*h*h*h*h*h*h*hpp*hppunordered_map": "cpp",
         "unordered_map": "cpp",
         "iostream": "cpp",
-        "string": "cpp"
+        "string": "cpp",
+        "sstream": "cpp",
+        "*h*hrandom": "cpp",
+        "random": "cpp",
+        "*h*hinitializer_list": "cpp",
+        "*h*h*h*hpp*hpp*hpp*hpp*hpp*hpp*hunordered_set": "cpp",
+        "*hpp*hpp*hpp*hpp*hpp*hpp*hpp*hpp*hpp*hpp*hpp*hpp*hpp*hpp*h*h*h*harray": "cpp",
+        "array": "cpp",
+        "*h*h*h*harray": "cpp",
+        "*hpp*hpp*hpp*hpp*hpp*hpp*hppunordered_map": "cpp",
+        "QMessageBox": "cpp"
     }
 }

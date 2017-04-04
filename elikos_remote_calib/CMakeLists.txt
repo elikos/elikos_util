@@ -104,15 +104,17 @@ set(elikos_remote_calib_SRCS
   src/gui/NodeCalibWidget.cpp
   src/gui/CalibDetectionWidget.cpp
   src/model/Calib.cpp
+  src/model/CalibrationFileManager.cpp
 )
 
 set(elikos_remote_calib_HDRS
+  include/elikos_remote_calib/Observer.h
   include/elikos_remote_calib/gui/RemoteCalib.h
   include/elikos_remote_calib/gui/CalibWidget.h
   include/elikos_remote_calib/gui/NodeCalibWidget.h
   include/elikos_remote_calib/gui/CalibDetectionWidget.h
   include/elikos_remote_calib/model/Calib.h
-  include/elikos_remote_calib/Observer.h
+  include/elikos_remote_calib/model/CalibrationFileManager.h
 )
 
 set(elikos_remote_calib_UIS

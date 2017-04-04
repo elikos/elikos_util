@@ -31,6 +31,8 @@ private slots:
     void calibrateSelectedNode();
     //Rafraichit tout le ui
     void autoRefresh();
+    //Ferme le tab x
+    void closeTab(int index);
 
 public:
     //implémentation de l'observeur

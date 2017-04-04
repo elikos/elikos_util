@@ -18,7 +18,7 @@ namespace remote_calib{
 class CalibDetectionWidget : public NodeCalibWidget
 {
 public:
-    CalibDetectionWidget(QWidget* parent);
+    CalibDetectionWidget(QWidget* parent, const std::string& nodeName);
 
 
 private:
