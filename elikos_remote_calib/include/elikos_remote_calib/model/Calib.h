@@ -11,7 +11,7 @@
 #include <map>
 #include <utility>
 
-#include "elikos_ros/CalibPreprocessing.h"
+
 #include "elikos_remote_calib/Observer.h"
 
 enum NodeType
@@ -19,7 +19,7 @@ enum NodeType
     DETECTION = 1
 };
 static const std::map<std::string, NodeType> TOPIC_TYPE_TO_NODE_TYPE = {
-    {"elikos_remote_calib_client/CalibPreprocessing", DETECTION}
+    {"elikos_remote_calib_client/CalibDetection", DETECTION}
 };
 
 
@@ -40,7 +40,7 @@ public:
 
 private:
     ros::NodeHandle nodeHandle_;
-    ros::Publisher publisher_;
+
 
     std::map<std::string, NodeType> calibratableNodes_;
 

@@ -13,13 +13,16 @@
 #include "elikos_remote_calib/ui_calib_node.h"
 #include "elikos_remote_calib/model/CalibrationFileManager.h"
 
-class NodeCalibWidget : public QWidget
+#include "elikos_remote_calib/model/CalibrationMessageManager.h"
+
+
+class NodeCalibWidgetBase : public QWidget
 {
     Q_OBJECT
 
 public:
-    NodeCalibWidget(QWidget* parent, const std::string& nodeName);
-    virtual ~NodeCalibWidget();
+    NodeCalibWidgetBase(QWidget* parent, const std::string& nodeName);
+    virtual ~NodeCalibWidgetBase();
 
     //retourne le nom du noeud
     std::string getNodeName();
@@ -38,11 +41,42 @@ protected:
     //Retourne le parent du paneau principal, pour y attacher la calibration 
     //spécifique à un noeud
     QWidget* getPanelParent();
-private:
-    
 
+private:
     Ui::CalibNodeWidget ui_;
     CalibrationFileManager calibrationFileManager_;
 };
+
+
+
+template <typename Msg>
+class NodeCalibWidget : public NodeCalibWidgetBase
+{
+public:
+    NodeCalibWidget(QWidget* parent, const std::string& nodeName);
+protected:
+    //Sert a envoyer des messages au noeud calibré
+    CalibrationMessageManager<Msg> messageManager_;
+};
+
+
+//==============================================================================
+//==============================================================================
+//                         Définition des templates
+//==============================================================================
+//==============================================================================
+
+/******************************************************************************
+* Constructeur
+* @param parent     [in,out] requis par Qt. Parent de la composante.
+* @param nodeName   [in]     le nom de noeud qu'on doit calibrer.
+******************************************************************************/
+template <typename Msg>
+NodeCalibWidget<Msg>::NodeCalibWidget(QWidget* parent, const std::string& nodeName)
+    : NodeCalibWidgetBase(parent, nodeName)
+    , messageManager_(nodeName)
+{
+
+}
 
 #endif

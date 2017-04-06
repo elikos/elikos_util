@@ -57,7 +57,7 @@ void CalibWidget::calibrateSelectedNode()
         
         if(currentPane == nullptr) continue;
 
-        NodeCalibWidget* calibWidget = dynamic_cast<NodeCalibWidget*>(currentPane);
+        NodeCalibWidgetBase* calibWidget = dynamic_cast<NodeCalibWidgetBase*>(currentPane);
         
         if(calibWidget == nullptr) continue;
 
@@ -71,7 +71,8 @@ void CalibWidget::calibrateSelectedNode()
     if(calib_.getCalibratableNodeType(nodeName) == NodeType::DETECTION){
         calibrator = new CalibDetectionWidget(ui_.tabMainCalib, nodeName);
     }else{
-        calibrator = new NodeCalibWidget(ui_.tabMainCalib, nodeName);
+        return;
+        //calibrator = new NodeCalibWidget(ui_.tabMainCalib, nodeName);
     }
 
     ui_.tabMainCalib->addTab(calibrator, QString(nodeName.c_str()));

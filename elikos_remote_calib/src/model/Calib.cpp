@@ -30,7 +30,6 @@ bool endsWith(const std::string& fullString, const std::string& end){
 Calib::Calib(Observer* observer)
     : observer_(observer)
 {
-    publisher_ = nodeHandle_.advertise<elikos_ros::CalibPreprocessing>("remote_calib_color", 2);
 }
 
 /*******************************************************************************
@@ -83,7 +82,12 @@ void Calib::refreshCalibratableNodes()
             if(endsWith(topicName, calibratableTopicEnd)){
                 std::string nodeName = topicName.substr(0, topicName.length() - calibratableTopicEnd.length());
                 
-                potentialCalibratableNodes[nodeName] = TOPIC_TYPE_TO_NODE_TYPE.at(topicType);
+                try {
+                    potentialCalibratableNodes[nodeName] = TOPIC_TYPE_TO_NODE_TYPE.at(topicType);
+                } catch(std::out_of_range exe){ 
+                    std::cerr << "No topic type defined! " << __FILE__ << ":" << __LINE__ << "\n";
+                    std::cerr << "the type was : " << topicType << std::endl;
+                }
             }
         }
 

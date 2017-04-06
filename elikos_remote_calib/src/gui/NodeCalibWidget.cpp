@@ -11,7 +11,7 @@
 * @param parent     [in] le parent QT de cet objet
 * @param nodeName   [in] le nom du noeud auquel se connecter
 *******************************************************************************/
-NodeCalibWidget::NodeCalibWidget(QWidget* parent, const std::string& nodeName)
+NodeCalibWidgetBase::NodeCalibWidgetBase(QWidget* parent, const std::string& nodeName)
     : QWidget(parent)
     , calibrationFileManager_(nodeName)
 {
@@ -26,7 +26,7 @@ NodeCalibWidget::NodeCalibWidget(QWidget* parent, const std::string& nodeName)
 /*******************************************************************************
 * Destructeur de la classe. Se déconnecte du noeud calibré.
 *******************************************************************************/
-NodeCalibWidget::~NodeCalibWidget()
+NodeCalibWidgetBase::~NodeCalibWidgetBase()
 {
     std::cerr << "Disconnect from node" << std::endl;
 }
@@ -36,7 +36,7 @@ NodeCalibWidget::~NodeCalibWidget()
 * 
 * @return le nom du noeud calibré
 *******************************************************************************/
-std::string NodeCalibWidget::getNodeName()
+std::string NodeCalibWidgetBase::getNodeName()
 {
     return calibrationFileManager_.getNodeName();
 }
@@ -45,7 +45,7 @@ std::string NodeCalibWidget::getNodeName()
 * Enregistre la calibration courrante du noeud dans le fochier spécifié par la 
 * liste déroulante des noms de fichers.
 *******************************************************************************/
-void NodeCalibWidget::save()
+void NodeCalibWidgetBase::save()
 {
     QString text = ui_.cmbFileNames->currentText();
     std::string fileName = text.toStdString();
@@ -62,7 +62,7 @@ void NodeCalibWidget::save()
 * Charge la calibration courrante du noeud dans le fichier spécifié par la liste
 * déroulante des noms de fichiers.
 *******************************************************************************/
-void NodeCalibWidget::load()
+void NodeCalibWidgetBase::load()
 {
     QString text = ui_.cmbFileNames->currentText();
     std::string fileName = text.toStdString();
@@ -77,7 +77,7 @@ void NodeCalibWidget::load()
 /*******************************************************************************
 * Efface le fichier de calibration donné en paramètres
 *******************************************************************************/
-void NodeCalibWidget::deleteFile()
+void NodeCalibWidgetBase::deleteFile()
 {
     QString text = ui_.cmbFileNames->currentText();
     std::string fileName = text.toStdString();
@@ -107,7 +107,7 @@ void NodeCalibWidget::deleteFile()
 *
 * @param message    [in] le message a afficher
 *******************************************************************************/
-void NodeCalibWidget::showErrorMessage(const QString& message)
+void NodeCalibWidgetBase::showErrorMessage(const QString& message)
 {
     QMessageBox::warning(this, "Erreur!", message);
 }
@@ -116,7 +116,7 @@ void NodeCalibWidget::showErrorMessage(const QString& message)
 * Retrouve les fichiers de calibrations exsistants dans le noeud et les affiches
 * dans la boîte de dialogue.
 *******************************************************************************/
-void NodeCalibWidget::getCalibrationFiles()
+void NodeCalibWidgetBase::getCalibrationFiles()
 {
     std::vector<std::string> calibFiles;
     calibrationFileManager_.getCalibrationFileNames(calibFiles);
@@ -143,7 +143,7 @@ void NodeCalibWidget::getCalibrationFiles()
 *
 * @return le widget parent
 *******************************************************************************/
-QWidget* NodeCalibWidget::getPanelParent()
+QWidget* NodeCalibWidgetBase::getPanelParent()
 {
     return ui_.mainPanelParent;
 }

@@ -12,10 +12,12 @@
 #include <QWidget>
 #include <elikos_remote_calib/ui_calib_detection.h>
 #include <elikos_remote_calib/gui/NodeCalibWidget.h>
+#include <elikos_remote_calib_client/CalibDetection.h>
+
 
 namespace remote_calib{
 
-class CalibDetectionWidget : public NodeCalibWidget
+class CalibDetectionWidget : public NodeCalibWidget<elikos_remote_calib_client::CalibDetection>
 {
 public:
     CalibDetectionWidget(QWidget* parent, const std::string& nodeName);

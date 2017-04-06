@@ -46,7 +46,25 @@
     <string>Calibratio : </string>
    </property>
   </widget>
+  <widget class="ImageOutput" name="widget" native="true">
+   <property name="geometry">
+    <rect>
+     <x>19</x>
+     <y>39</y>
+     <width>351</width>
+     <height>381</height>
+    </rect>
+   </property>
+  </widget>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>ImageOutput</class>
+   <extends>QWidget</extends>
+   <header location="global">elikos_remote_calib/gui/ImageOutput.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>
