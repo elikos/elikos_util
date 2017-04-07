@@ -7,6 +7,7 @@ CalibDetectionWidget::CalibDetectionWidget(QWidget* parent, const std::string& n
     : NodeCalibWidget(parent, nodeName)
 {
     ui_.setupUi(NodeCalibWidget::getPanelParent());
+    ui_.image->setListenTopic("/elikos_remotecalib/input", "compressed");
 }
 
 

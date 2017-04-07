@@ -38,6 +38,14 @@
         "array": "cpp",
         "*h*h*h*harray": "cpp",
         "*hpp*hpp*hpp*hpp*hpp*hpp*hppunordered_map": "cpp",
-        "QMessageBox": "cpp"
+        "QMessageBox": "cpp",
+        "qimage": "cpp",
+        "cmath": "cpp",
+        "cstdarg": "cpp",
+        "cstddef": "cpp",
+        "cstring": "cpp",
+        "cwctype": "cpp",
+        "qstackedlayout": "cpp",
+        "*.ipp": "cpp"
     }
 }
