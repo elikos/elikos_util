@@ -9,14 +9,15 @@
 
 #include <elikos_remote_calib_client/Calibrator.h>
 
-template <typename Msg>
+template <typename Msg, typename T>
 class CalibrationMessageManager {
 public:
-    CalibrationMessageManager(const std::string& nodeName);
+    CalibrationMessageManager(const std::string& nodeName, void(T::*fp)(const boost::shared_ptr< Msg const > &), T* instance);
     void sendCalibraitonMessage(Msg m);
 private:
     ros::NodeHandle nodeHandle_;
     ros::Publisher publisher_;
+    ros::Subscriber subscriber_;
 };
 
 //==============================================================================
@@ -30,21 +31,22 @@ private:
 * Constructeur de la classe. Initialise les messages.
 *
 * @param nodeName   [in] le nom du noeud auquel se connecter.
+* @param fp         [in] le pointeur de la fonction a appeler
+* @param instance   [in] l'instance sur laquelle appeler la fonction
 ******************************************************************************/
-template <typename Msg>
-CalibrationMessageManager<Msg>::CalibrationMessageManager(const std::string& nodeName)
+template <typename Msg, typename T>
+CalibrationMessageManager<Msg, T>::CalibrationMessageManager(const std::string& nodeName, void(T::*fp)(const boost::shared_ptr< Msg const > &), T* instance)
     : nodeHandle_()
 {
-    publisher_ = nodeHandle_.advertise<Msg>(
-        ros::names::append(
+    std::string topicName = ros::names::append(
             nodeName,
             ros::names::append(
                 remote_calib::REMOTE_CALIB_NAMESPCACE,
                 remote_calib::MESSAGE_TOPIC_NAME
             )
-        ),
-        4
-    );
+        );
+    publisher_ = nodeHandle_.advertise<Msg>(topicName, 4);
+    subscriber_ = nodeHandle_.subscribe<Msg, T>(topicName, 4, fp, instance);
     
 }
 
@@ -53,8 +55,8 @@ CalibrationMessageManager<Msg>::CalibrationMessageManager(const std::string& nod
 *
 * @param m      [in] le message a envoyer
 ******************************************************************************/
-template <typename Msg>
-void CalibrationMessageManager<Msg>::sendCalibraitonMessage(Msg m)
+template <typename Msg, typename T>
+void CalibrationMessageManager<Msg, T>::sendCalibraitonMessage(Msg m)
 {
     publisher_.publish(m);
 }

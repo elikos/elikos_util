@@ -46,6 +46,7 @@
         "cstring": "cpp",
         "cwctype": "cpp",
         "qstackedlayout": "cpp",
-        "*.ipp": "cpp"
+        "*.ipp": "cpp",
+        "slist": "cpp"
     }
 }

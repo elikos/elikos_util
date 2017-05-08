@@ -49,7 +49,6 @@ void RatioLayoutedFrame::setImage(const QImage& image)//, QMutex* image_mutex)
 void RatioLayoutedFrame::resizeToFitAspectRatio()
 {
   QRect rect = contentsRect();
-
   // reduce longer edge to aspect ration
   double width = double(rect.width());
   double height = double(rect.height());
@@ -67,7 +66,8 @@ void RatioLayoutedFrame::resizeToFitAspectRatio()
   }
 
   // resize taking the border line into account
-  int border = lineWidth();
+  int border = 0;//lineWidth();
+
   resize(rect.width() + 2 * border, rect.height() + 2 * border);
 }
 

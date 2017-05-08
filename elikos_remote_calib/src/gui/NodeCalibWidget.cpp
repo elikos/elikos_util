@@ -14,6 +14,7 @@
 NodeCalibWidgetBase::NodeCalibWidgetBase(QWidget* parent, const std::string& nodeName)
     : QWidget(parent)
     , calibrationFileManager_(nodeName)
+    , targetNodeHandle_(nodeName)
 {
     ui_.setupUi(this);
 
@@ -39,6 +40,18 @@ NodeCalibWidgetBase::~NodeCalibWidgetBase()
 std::string NodeCalibWidgetBase::getNodeName()
 {
     return calibrationFileManager_.getNodeName();
+}
+
+/******************************************************************************
+* Rafraichit le GUI du node. Utile car appelé sur le même fil d'execution que 
+* l'interface graphique.
+******************************************************************************/
+void NodeCalibWidgetBase::updateNode()
+{
+    if(needsUpdate_){
+        needsUpdate_ = false;
+        update();
+    }
 }
 
 /*******************************************************************************
@@ -146,4 +159,11 @@ void NodeCalibWidgetBase::getCalibrationFiles()
 QWidget* NodeCalibWidgetBase::getPanelParent()
 {
     return ui_.mainPanelParent;
+}
+
+/******************************************************************************
+* Met a jour les composantes du noeud.
+******************************************************************************/
+void NodeCalibWidgetBase::update()
+{
 }

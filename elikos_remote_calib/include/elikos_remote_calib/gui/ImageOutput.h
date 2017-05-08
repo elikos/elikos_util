@@ -16,18 +16,38 @@
 
 #include "elikos_remote_calib/gui/RatioLayoutedFrameDup.h"
 
+
 class ImageOutput : public QWidget
 {
     Q_OBJECT
 public:
     ImageOutput(QWidget* parent);
+    void setNodeHandle(const ros::NodeHandle&);
     void setListenTopic(const std::string& topicName, const std::string& topicTransport);
+
+    bool isPaused();
+    void setPaused(bool paused);
+
+    cv::Vec3b getPixel(float xNorm, float yNorm);
+    float getNormalizedPixelWidth();
+    float getNormalizedPixelHeight();
+
+signals:
+    void mouseLeft(float xNorm, float yNorm);
+public slots:
+    void togglePaused();
+private slots:
+    void inner_mouseLeft(int x, int y);
 private:
     void callbackImage(const sensor_msgs::Image::ConstPtr& msg);
 
     remote_calib::rqt_image_view::RatioLayoutedFrame* imageFrame_;
     image_transport::Subscriber subscriber_;
-    ros::NodeHandle nodeHandle_;
+    const ros::NodeHandle*  nodeHandle_;
+
+    cv::Mat lastDisplayedFrame_;
+
+    bool paused_;
 };
 
 

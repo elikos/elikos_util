@@ -103,10 +103,11 @@ set(elikos_remote_calib_SRCS
   src/gui/CalibWidget.cpp
   src/gui/NodeCalibWidget.cpp
   src/gui/CalibDetectionWidget.cpp
+  src/gui/ImageOutput.cpp
   src/gui/RatioLayoutedFrameDup.cpp
   src/model/Calib.cpp
   src/model/CalibrationFileManager.cpp
-  src/gui/ImageOutput.cpp
+  src/model/PolarCoords.cpp
 )
 
 set(elikos_remote_calib_HDRS
@@ -120,6 +121,7 @@ set(elikos_remote_calib_HDRS
   include/elikos_remote_calib/model/Calib.h
   include/elikos_remote_calib/model/CalibrationFileManager.h
   include/elikos_remote_calib/model/CalibrationMessageManager.h
+  include/elikos_remote_calib/model/PolarCoords.h
 )
 
 set(elikos_remote_calib_UIS

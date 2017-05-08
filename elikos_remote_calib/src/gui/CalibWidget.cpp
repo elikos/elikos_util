@@ -85,6 +85,17 @@ void CalibWidget::calibrateSelectedNode()
 void CalibWidget::autoRefresh()
 {
     calib_.refresh();
+    for(int i = 0; i < ui_.tabMainCalib->count(); ++i){
+        QWidget* currentPane = ui_.tabMainCalib->widget(i);
+
+        if(currentPane == nullptr) continue;
+
+        NodeCalibWidgetBase* calibWidget = dynamic_cast<NodeCalibWidgetBase*>(currentPane);
+        
+        if(calibWidget == nullptr) continue;
+
+        calibWidget->updateNode();
+    }
 }
 
 /*******************************************************************************

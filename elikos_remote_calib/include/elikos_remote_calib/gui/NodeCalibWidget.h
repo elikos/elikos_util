@@ -26,6 +26,9 @@ public:
 
     //retourne le nom du noeud
     std::string getNodeName();
+
+    void updateNode();
+
 private slots:
     //lorsqu'on clique sur sauvegarder
     void save();
@@ -42,6 +45,12 @@ protected:
     //spécifique à un noeud
     QWidget* getPanelParent();
 
+    //Appelée a toutes les 30ms si needsUpdate_ est vrai.
+    virtual void update();
+
+    ros::NodeHandle targetNodeHandle_;
+
+    volatile bool needsUpdate_ = false;
 private:
     Ui::CalibNodeWidget ui_;
     CalibrationFileManager calibrationFileManager_;
@@ -55,8 +64,9 @@ class NodeCalibWidget : public NodeCalibWidgetBase
 public:
     NodeCalibWidget(QWidget* parent, const std::string& nodeName);
 protected:
+    virtual void calibCallback(const boost::shared_ptr< Msg const > &);
     //Sert a envoyer des messages au noeud calibré
-    CalibrationMessageManager<Msg> messageManager_;
+    CalibrationMessageManager<Msg, NodeCalibWidget> messageManager_;
 };
 
 
@@ -74,9 +84,17 @@ protected:
 template <typename Msg>
 NodeCalibWidget<Msg>::NodeCalibWidget(QWidget* parent, const std::string& nodeName)
     : NodeCalibWidgetBase(parent, nodeName)
-    , messageManager_(nodeName)
+    , messageManager_(nodeName, &NodeCalibWidget<Msg>::calibCallback, this)
 {
 
+}
+
+/******************************************************************************
+* Méthode à surcharger pour pouvoir écouter la calibration initiale.
+******************************************************************************/
+template<typename Msg>
+void NodeCalibWidget<Msg>::calibCallback(const boost::shared_ptr< Msg const > &)
+{
 }
 
 #endif
