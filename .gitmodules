@@ -1,0 +1,3 @@
+[submodule "vicon_bridge"]
+	path = vicon_bridge
+	url = https://github.com/ethz-asl/vicon_bridge.git
