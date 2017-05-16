@@ -1,0 +1,5 @@
+<launch>
+    <node name="elikos_vicon_remapping" pkg="elikos_vicon_remapping" type="elikos_vicon_remapping.py">
+        <rosparam command="load" file="$(find elikos_vicon_remapping)/cfg/elikos_vicon_remapping.yaml" />
+    </node>
+</launch>
