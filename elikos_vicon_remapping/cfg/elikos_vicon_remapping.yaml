@@ -1,2 +1,4 @@
-in_topic: "/vicon/lol2"
-out_topic: "/elikos/lol2"
+vicon_ref_frame_id: "/world"
+vicon_child_frame_id: "/vicon"
+elikos_ref_frame_id: "/elikos/lol1"
+elikos_child_frame_id: "/elikos/lol2"
