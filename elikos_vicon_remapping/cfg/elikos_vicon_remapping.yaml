@@ -1,4 +1,4 @@
-vicon_ref_frame_id: "/world"
-vicon_child_frame_id: "/vicon"
+vicon_ref_frame_id: "world"
+vicon_child_frame_id: "vicon/elikos_vicon_quad/elikos_vicon_quad"
 elikos_ref_frame_id: "elikos_local_origin"
-elikos_child_frame_id: "elikos_fcu"
+elikos_child_frame_id: "elikos_vision"
