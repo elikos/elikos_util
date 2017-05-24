@@ -1,5 +1,5 @@
 # elikos_util
-elikos_util contient le code qui ne va pas sur l'ordinateur de bord du drone.
+elikos_util contient le code qui n'est pas nécessaire à la mission. C'est principalement du code pour les tests.
 
 # Notes sur l'utilisation du VICON au lab du 5ème.  
 ## Démarrage VICON
