@@ -1,5 +1,5 @@
 # elikos_util
-elikos_util contient le code qui ne va pas sur l'ordinateur de bord du drone.
+elikos_util contient le code qui n'est pas nécessaire à la mission. C'est principalement du code pour les tests.
 
 # Notes sur l'utilisation du VICON au lab du 5ème.  
 1. Lien utile pour les paramètres LPE : https://pixhawk.ethz.ch/docs/modules_2local__position__estimator_2params_8c.html#a034f82ab609defe64a477a213cc5ad2b  
