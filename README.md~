@@ -14,7 +14,7 @@ elikos_util contient le code qui n'est pas nécessaire à la mission. C'est prin
 1. Dans la table `calibrate` cliquer sur start dans la section `create camera mask`. S'assurer qu'il n'y a aucun capteurs dans l'arene (ni le magic wand). Ensuite stop.
 1. Dans la section `calibrate cameras`, cliquer sur start. Allumer la magic wand et se promener dans l'arène en faisant beaucoup de mouvements (genre des grands huits) avec la magic wand (en pointant les leds le plus possible vers les caméras) jusqu'à ce que tous les triangles disparaissent de l'écran. Attendre que la calibration termine (barre de chargement). Ensuite cliquer sur stop.
 1. Déposer la magic wand allumée à l'origine de l'arène.
-1. Dans la section `set volume origin`, cliquer sur `start`, s'assurer que la wand est bien détectée. Cliquer sur `set origin`.
+1. Dans la section `set volume origin`, cliquer sur `start`, s'assurer que la wand est bien détectée. Cliquer sur `start calibration`.
 1. Changer la vue pour 3D perspective.
 1. S'assurer que les caméras sont bien positionnées selon l'origine définie et les unes par rapport aux autres.
 
