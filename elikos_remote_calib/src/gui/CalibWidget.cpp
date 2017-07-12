@@ -49,6 +49,9 @@ void CalibWidget::refreshCalibratableNodes()
 *******************************************************************************/
 void CalibWidget::calibrateSelectedNode()
 {
+    if(ui_.cmbTargetSelection->count() == 0){
+        return;
+    }
     std::string nodeName = ui_.cmbTargetSelection->currentText().toStdString();
     std::cout << calib_.getCalibratableNodeType(nodeName) << std::endl;
 
