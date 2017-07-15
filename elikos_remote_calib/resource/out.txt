@@ -1,0 +1,642 @@
+/********************************************************************************
+** Form generated from reading UI file 'calib_detection.ui'
+**
+** Created by: Qt User Interface Compiler version 5.2.1
+**
+** WARNING! All changes made in this file will be lost when recompiling UI file!
+********************************************************************************/
+
+#ifndef UI_CALIB_DETECTION_H
+#define UI_CALIB_DETECTION_H
+
+#include <QtCore/QVariant>
+#include <QtWidgets/QAction>
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QHBoxLayout>
+#include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
+#include <QtWidgets/QPushButton>
+#include <QtWidgets/QRadioButton>
+#include <QtWidgets/QSlider>
+#include <QtWidgets/QTabWidget>
+#include <QtWidgets/QVBoxLayout>
+#include <QtWidgets/QWidget>
+#include <elikos_remote_calib/gui/ImageOutput.h>
+
+QT_BEGIN_NAMESPACE
+
+class Ui_CalibDetectionWidget
+{
+public:
+    QHBoxLayout *horizontalLayout;
+    QVBoxLayout *verticalLayout;
+    QLabel *label;
+    ImageOutput *image_out;
+    QLabel *label_3;
+    QWidget *widget_4;
+    QHBoxLayout *horizontalLayout_3;
+    QRadioButton *colRed;
+    QLabel *lblColRed;
+    QRadioButton *colGreen;
+    QLabel *lblColGreen;
+    QRadioButton *colWhite;
+    QLabel *lblColWhite;
+    QWidget *widget;
+    QVBoxLayout *verticalLayout_2;
+    QTabWidget *tabWidget;
+    QWidget *tab_4;
+    QHBoxLayout *horizontalLayout_5;
+    QWidget *widget_5;
+    QVBoxLayout *verticalLayout_7;
+    QLabel *label_6;
+    QWidget *widget_8;
+    QVBoxLayout *verticalLayout_8;
+    QLabel *label_7;
+    QLineEdit *txtHMax;
+    QSlider *sldHMax;
+    QWidget *widget_7;
+    QVBoxLayout *verticalLayout_6;
+    QLabel *label_5;
+    QLineEdit *txtHMin;
+    QSlider *sldHMin;
+    QWidget *widget_18;
+    QVBoxLayout *verticalLayout_18;
+    QLabel *label_17;
+    QWidget *widget_19;
+    QVBoxLayout *verticalLayout_19;
+    QLabel *label_18;
+    QLineEdit *txtSMax;
+    QSlider *sldSMax;
+    QWidget *widget_20;
+    QVBoxLayout *verticalLayout_20;
+    QLabel *label_19;
+    QLineEdit *txtSMin;
+    QSlider *sldSMin;
+    QWidget *widget_15;
+    QVBoxLayout *verticalLayout_15;
+    QLabel *label_14;
+    QWidget *widget_16;
+    QVBoxLayout *verticalLayout_16;
+    QLabel *label_15;
+    QLineEdit *txtVMax;
+    QSlider *sldVMax;
+    QWidget *widget_17;
+    QVBoxLayout *verticalLayout_17;
+    QLabel *label_16;
+    QLineEdit *txtVMin;
+    QSlider *sldvMin;
+    QWidget *widget_12;
+    QVBoxLayout *verticalLayout_9;
+    QWidget *widget_13;
+    QVBoxLayout *verticalLayout_13;
+    QLabel *label_12;
+    QLineEdit *txtPreErode;
+    QSlider *sldPreErode;
+    QWidget *widget_21;
+    QVBoxLayout *verticalLayout_21;
+    QLabel *label_20;
+    QLineEdit *txtDilate;
+    QSlider *sldDilate;
+    QWidget *widget_14;
+    QVBoxLayout *verticalLayout_14;
+    QLabel *label_13;
+    QLineEdit *txtPostErode;
+    QSlider *sldPostErode;
+    QWidget *tab_3;
+    QVBoxLayout *verticalLayout_3;
+    ImageOutput *image_calib;
+    QPushButton *btnTogglePlay;
+    QWidget *widget_2;
+    QHBoxLayout *horizontalLayout_2;
+    QWidget *widget_3;
+    QVBoxLayout *verticalLayout_4;
+    QLabel *label_2;
+    QLineEdit *txtErrorDelta;
+    QSlider *sldErrorDelta;
+
+    void setupUi(QWidget *CalibDetectionWidget)
+    {
+        if (CalibDetectionWidget->objectName().isEmpty())
+            CalibDetectionWidget->setObjectName(QStringLiteral("CalibDetectionWidget"));
+        CalibDetectionWidget->resize(909, 527);
+        QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(CalibDetectionWidget->sizePolicy().hasHeightForWidth());
+        CalibDetectionWidget->setSizePolicy(sizePolicy);
+        horizontalLayout = new QHBoxLayout(CalibDetectionWidget);
+        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        verticalLayout = new QVBoxLayout();
+        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        label = new QLabel(CalibDetectionWidget);
+        label->setObjectName(QStringLiteral("label"));
+
+        verticalLayout->addWidget(label);
+
+        image_out = new ImageOutput(CalibDetectionWidget);
+        image_out->setObjectName(QStringLiteral("image_out"));
+        sizePolicy.setHeightForWidth(image_out->sizePolicy().hasHeightForWidth());
+        image_out->setSizePolicy(sizePolicy);
+
+        verticalLayout->addWidget(image_out);
+
+        label_3 = new QLabel(CalibDetectionWidget);
+        label_3->setObjectName(QStringLiteral("label_3"));
+
+        verticalLayout->addWidget(label_3);
+
+        widget_4 = new QWidget(CalibDetectionWidget);
+        widget_4->setObjectName(QStringLiteral("widget_4"));
+        horizontalLayout_3 = new QHBoxLayout(widget_4);
+        horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
+        colRed = new QRadioButton(widget_4);
+        colRed->setObjectName(QStringLiteral("colRed"));
+        colRed->setChecked(true);
+
+        horizontalLayout_3->addWidget(colRed);
+
+        lblColRed = new QLabel(widget_4);
+        lblColRed->setObjectName(QStringLiteral("lblColRed"));
+        QSizePolicy sizePolicy1(QSizePolicy::Expanding, QSizePolicy::Preferred);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(lblColRed->sizePolicy().hasHeightForWidth());
+        lblColRed->setSizePolicy(sizePolicy1);
+        lblColRed->setScaledContents(false);
+
+        horizontalLayout_3->addWidget(lblColRed);
+
+        colGreen = new QRadioButton(widget_4);
+        colGreen->setObjectName(QStringLiteral("colGreen"));
+
+        horizontalLayout_3->addWidget(colGreen);
+
+        lblColGreen = new QLabel(widget_4);
+        lblColGreen->setObjectName(QStringLiteral("lblColGreen"));
+        sizePolicy1.setHeightForWidth(lblColGreen->sizePolicy().hasHeightForWidth());
+        lblColGreen->setSizePolicy(sizePolicy1);
+
+        horizontalLayout_3->addWidget(lblColGreen);
+
+        colWhite = new QRadioButton(widget_4);
+        colWhite->setObjectName(QStringLiteral("colWhite"));
+
+        horizontalLayout_3->addWidget(colWhite);
+
+        lblColWhite = new QLabel(widget_4);
+        lblColWhite->setObjectName(QStringLiteral("lblColWhite"));
+        sizePolicy1.setHeightForWidth(lblColWhite->sizePolicy().hasHeightForWidth());
+        lblColWhite->setSizePolicy(sizePolicy1);
+
+        horizontalLayout_3->addWidget(lblColWhite);
+
+
+        verticalLayout->addWidget(widget_4);
+
+
+        horizontalLayout->addLayout(verticalLayout);
+
+        widget = new QWidget(CalibDetectionWidget);
+        widget->setObjectName(QStringLiteral("widget"));
+        verticalLayout_2 = new QVBoxLayout(widget);
+        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
+        tabWidget = new QTabWidget(widget);
+        tabWidget->setObjectName(QStringLiteral("tabWidget"));
+        tab_4 = new QWidget();
+        tab_4->setObjectName(QStringLiteral("tab_4"));
+        horizontalLayout_5 = new QHBoxLayout(tab_4);
+        horizontalLayout_5->setObjectName(QStringLiteral("horizontalLayout_5"));
+        widget_5 = new QWidget(tab_4);
+        widget_5->setObjectName(QStringLiteral("widget_5"));
+        verticalLayout_7 = new QVBoxLayout(widget_5);
+        verticalLayout_7->setObjectName(QStringLiteral("verticalLayout_7"));
+        label_6 = new QLabel(widget_5);
+        label_6->setObjectName(QStringLiteral("label_6"));
+
+        verticalLayout_7->addWidget(label_6);
+
+        widget_8 = new QWidget(widget_5);
+        widget_8->setObjectName(QStringLiteral("widget_8"));
+        QSizePolicy sizePolicy2(QSizePolicy::Preferred, QSizePolicy::Preferred);
+        sizePolicy2.setHorizontalStretch(0);
+        sizePolicy2.setVerticalStretch(0);
+        sizePolicy2.setHeightForWidth(widget_8->sizePolicy().hasHeightForWidth());
+        widget_8->setSizePolicy(sizePolicy2);
+        verticalLayout_8 = new QVBoxLayout(widget_8);
+        verticalLayout_8->setObjectName(QStringLiteral("verticalLayout_8"));
+        label_7 = new QLabel(widget_8);
+        label_7->setObjectName(QStringLiteral("label_7"));
+
+        verticalLayout_8->addWidget(label_7);
+
+        txtHMax = new QLineEdit(widget_8);
+        txtHMax->setObjectName(QStringLiteral("txtHMax"));
+        QSizePolicy sizePolicy3(QSizePolicy::Minimum, QSizePolicy::Fixed);
+        sizePolicy3.setHorizontalStretch(0);
+        sizePolicy3.setVerticalStretch(0);
+        sizePolicy3.setHeightForWidth(txtHMax->sizePolicy().hasHeightForWidth());
+        txtHMax->setSizePolicy(sizePolicy3);
+        txtHMax->setMaximumSize(QSize(40, 16777215));
+        txtHMax->setMaxLength(3);
+
+        verticalLayout_8->addWidget(txtHMax);
+
+
+        verticalLayout_7->addWidget(widget_8);
+
+        sldHMax = new QSlider(widget_5);
+        sldHMax->setObjectName(QStringLiteral("sldHMax"));
+        sldHMax->setOrientation(Qt::Vertical);
+
+        verticalLayout_7->addWidget(sldHMax);
+
+        widget_7 = new QWidget(widget_5);
+        widget_7->setObjectName(QStringLiteral("widget_7"));
+        sizePolicy2.setHeightForWidth(widget_7->sizePolicy().hasHeightForWidth());
+        widget_7->setSizePolicy(sizePolicy2);
+        verticalLayout_6 = new QVBoxLayout(widget_7);
+        verticalLayout_6->setObjectName(QStringLiteral("verticalLayout_6"));
+        label_5 = new QLabel(widget_7);
+        label_5->setObjectName(QStringLiteral("label_5"));
+
+        verticalLayout_6->addWidget(label_5);
+
+        txtHMin = new QLineEdit(widget_7);
+        txtHMin->setObjectName(QStringLiteral("txtHMin"));
+        sizePolicy3.setHeightForWidth(txtHMin->sizePolicy().hasHeightForWidth());
+        txtHMin->setSizePolicy(sizePolicy3);
+        txtHMin->setMaximumSize(QSize(40, 16777215));
+        txtHMin->setMaxLength(3);
+
+        verticalLayout_6->addWidget(txtHMin);
+
+
+        verticalLayout_7->addWidget(widget_7);
+
+        sldHMin = new QSlider(widget_5);
+        sldHMin->setObjectName(QStringLiteral("sldHMin"));
+        sldHMin->setOrientation(Qt::Vertical);
+
+        verticalLayout_7->addWidget(sldHMin);
+
+
+        horizontalLayout_5->addWidget(widget_5);
+
+        widget_18 = new QWidget(tab_4);
+        widget_18->setObjectName(QStringLiteral("widget_18"));
+        verticalLayout_18 = new QVBoxLayout(widget_18);
+        verticalLayout_18->setObjectName(QStringLiteral("verticalLayout_18"));
+        label_17 = new QLabel(widget_18);
+        label_17->setObjectName(QStringLiteral("label_17"));
+
+        verticalLayout_18->addWidget(label_17);
+
+        widget_19 = new QWidget(widget_18);
+        widget_19->setObjectName(QStringLiteral("widget_19"));
+        sizePolicy2.setHeightForWidth(widget_19->sizePolicy().hasHeightForWidth());
+        widget_19->setSizePolicy(sizePolicy2);
+        verticalLayout_19 = new QVBoxLayout(widget_19);
+        verticalLayout_19->setObjectName(QStringLiteral("verticalLayout_19"));
+        label_18 = new QLabel(widget_19);
+        label_18->setObjectName(QStringLiteral("label_18"));
+
+        verticalLayout_19->addWidget(label_18);
+
+        txtSMax = new QLineEdit(widget_19);
+        txtSMax->setObjectName(QStringLiteral("txtSMax"));
+        sizePolicy3.setHeightForWidth(txtSMax->sizePolicy().hasHeightForWidth());
+        txtSMax->setSizePolicy(sizePolicy3);
+        txtSMax->setMaximumSize(QSize(40, 16777215));
+        txtSMax->setMaxLength(3);
+
+        verticalLayout_19->addWidget(txtSMax);
+
+
+        verticalLayout_18->addWidget(widget_19);
+
+        sldSMax = new QSlider(widget_18);
+        sldSMax->setObjectName(QStringLiteral("sldSMax"));
+        sldSMax->setOrientation(Qt::Vertical);
+
+        verticalLayout_18->addWidget(sldSMax);
+
+        widget_20 = new QWidget(widget_18);
+        widget_20->setObjectName(QStringLiteral("widget_20"));
+        sizePolicy2.setHeightForWidth(widget_20->sizePolicy().hasHeightForWidth());
+        widget_20->setSizePolicy(sizePolicy2);
+        verticalLayout_20 = new QVBoxLayout(widget_20);
+        verticalLayout_20->setObjectName(QStringLiteral("verticalLayout_20"));
+        label_19 = new QLabel(widget_20);
+        label_19->setObjectName(QStringLiteral("label_19"));
+
+        verticalLayout_20->addWidget(label_19);
+
+        txtSMin = new QLineEdit(widget_20);
+        txtSMin->setObjectName(QStringLiteral("txtSMin"));
+        sizePolicy3.setHeightForWidth(txtSMin->sizePolicy().hasHeightForWidth());
+        txtSMin->setSizePolicy(sizePolicy3);
+        txtSMin->setMaximumSize(QSize(40, 16777215));
+        txtSMin->setMaxLength(3);
+
+        verticalLayout_20->addWidget(txtSMin);
+
+
+        verticalLayout_18->addWidget(widget_20);
+
+        sldSMin = new QSlider(widget_18);
+        sldSMin->setObjectName(QStringLiteral("sldSMin"));
+        sldSMin->setOrientation(Qt::Vertical);
+
+        verticalLayout_18->addWidget(sldSMin);
+
+
+        horizontalLayout_5->addWidget(widget_18);
+
+        widget_15 = new QWidget(tab_4);
+        widget_15->setObjectName(QStringLiteral("widget_15"));
+        verticalLayout_15 = new QVBoxLayout(widget_15);
+        verticalLayout_15->setObjectName(QStringLiteral("verticalLayout_15"));
+        label_14 = new QLabel(widget_15);
+        label_14->setObjectName(QStringLiteral("label_14"));
+
+        verticalLayout_15->addWidget(label_14);
+
+        widget_16 = new QWidget(widget_15);
+        widget_16->setObjectName(QStringLiteral("widget_16"));
+        sizePolicy2.setHeightForWidth(widget_16->sizePolicy().hasHeightForWidth());
+        widget_16->setSizePolicy(sizePolicy2);
+        verticalLayout_16 = new QVBoxLayout(widget_16);
+        verticalLayout_16->setObjectName(QStringLiteral("verticalLayout_16"));
+        label_15 = new QLabel(widget_16);
+        label_15->setObjectName(QStringLiteral("label_15"));
+
+        verticalLayout_16->addWidget(label_15);
+
+        txtVMax = new QLineEdit(widget_16);
+        txtVMax->setObjectName(QStringLiteral("txtVMax"));
+        sizePolicy3.setHeightForWidth(txtVMax->sizePolicy().hasHeightForWidth());
+        txtVMax->setSizePolicy(sizePolicy3);
+        txtVMax->setMaximumSize(QSize(40, 16777215));
+        txtVMax->setMaxLength(3);
+
+        verticalLayout_16->addWidget(txtVMax);
+
+
+        verticalLayout_15->addWidget(widget_16);
+
+        sldVMax = new QSlider(widget_15);
+        sldVMax->setObjectName(QStringLiteral("sldVMax"));
+        sldVMax->setOrientation(Qt::Vertical);
+
+        verticalLayout_15->addWidget(sldVMax);
+
+        widget_17 = new QWidget(widget_15);
+        widget_17->setObjectName(QStringLiteral("widget_17"));
+        sizePolicy2.setHeightForWidth(widget_17->sizePolicy().hasHeightForWidth());
+        widget_17->setSizePolicy(sizePolicy2);
+        verticalLayout_17 = new QVBoxLayout(widget_17);
+        verticalLayout_17->setObjectName(QStringLiteral("verticalLayout_17"));
+        label_16 = new QLabel(widget_17);
+        label_16->setObjectName(QStringLiteral("label_16"));
+
+        verticalLayout_17->addWidget(label_16);
+
+        txtVMin = new QLineEdit(widget_17);
+        txtVMin->setObjectName(QStringLiteral("txtVMin"));
+        sizePolicy3.setHeightForWidth(txtVMin->sizePolicy().hasHeightForWidth());
+        txtVMin->setSizePolicy(sizePolicy3);
+        txtVMin->setMaximumSize(QSize(40, 16777215));
+        txtVMin->setMaxLength(3);
+
+        verticalLayout_17->addWidget(txtVMin);
+
+
+        verticalLayout_15->addWidget(widget_17);
+
+        sldvMin = new QSlider(widget_15);
+        sldvMin->setObjectName(QStringLiteral("sldvMin"));
+        sldvMin->setOrientation(Qt::Vertical);
+
+        verticalLayout_15->addWidget(sldvMin);
+
+
+        horizontalLayout_5->addWidget(widget_15);
+
+        widget_12 = new QWidget(tab_4);
+        widget_12->setObjectName(QStringLiteral("widget_12"));
+        verticalLayout_9 = new QVBoxLayout(widget_12);
+        verticalLayout_9->setObjectName(QStringLiteral("verticalLayout_9"));
+        widget_13 = new QWidget(widget_12);
+        widget_13->setObjectName(QStringLiteral("widget_13"));
+        sizePolicy2.setHeightForWidth(widget_13->sizePolicy().hasHeightForWidth());
+        widget_13->setSizePolicy(sizePolicy2);
+        verticalLayout_13 = new QVBoxLayout(widget_13);
+        verticalLayout_13->setObjectName(QStringLiteral("verticalLayout_13"));
+        label_12 = new QLabel(widget_13);
+        label_12->setObjectName(QStringLiteral("label_12"));
+
+        verticalLayout_13->addWidget(label_12);
+
+        txtPreErode = new QLineEdit(widget_13);
+        txtPreErode->setObjectName(QStringLiteral("txtPreErode"));
+        sizePolicy3.setHeightForWidth(txtPreErode->sizePolicy().hasHeightForWidth());
+        txtPreErode->setSizePolicy(sizePolicy3);
+        txtPreErode->setMaximumSize(QSize(40, 16777215));
+        txtPreErode->setMaxLength(3);
+
+        verticalLayout_13->addWidget(txtPreErode);
+
+
+        verticalLayout_9->addWidget(widget_13);
+
+        sldPreErode = new QSlider(widget_12);
+        sldPreErode->setObjectName(QStringLiteral("sldPreErode"));
+        sldPreErode->setOrientation(Qt::Horizontal);
+
+        verticalLayout_9->addWidget(sldPreErode);
+
+        widget_21 = new QWidget(widget_12);
+        widget_21->setObjectName(QStringLiteral("widget_21"));
+        sizePolicy2.setHeightForWidth(widget_21->sizePolicy().hasHeightForWidth());
+        widget_21->setSizePolicy(sizePolicy2);
+        verticalLayout_21 = new QVBoxLayout(widget_21);
+        verticalLayout_21->setObjectName(QStringLiteral("verticalLayout_21"));
+        label_20 = new QLabel(widget_21);
+        label_20->setObjectName(QStringLiteral("label_20"));
+
+        verticalLayout_21->addWidget(label_20);
+
+        txtDilate = new QLineEdit(widget_21);
+        txtDilate->setObjectName(QStringLiteral("txtDilate"));
+        sizePolicy3.setHeightForWidth(txtDilate->sizePolicy().hasHeightForWidth());
+        txtDilate->setSizePolicy(sizePolicy3);
+        txtDilate->setMaximumSize(QSize(40, 16777215));
+        txtDilate->setMaxLength(3);
+
+        verticalLayout_21->addWidget(txtDilate);
+
+
+        verticalLayout_9->addWidget(widget_21);
+
+        sldDilate = new QSlider(widget_12);
+        sldDilate->setObjectName(QStringLiteral("sldDilate"));
+        sldDilate->setOrientation(Qt::Horizontal);
+
+        verticalLayout_9->addWidget(sldDilate);
+
+        widget_14 = new QWidget(widget_12);
+        widget_14->setObjectName(QStringLiteral("widget_14"));
+        sizePolicy2.setHeightForWidth(widget_14->sizePolicy().hasHeightForWidth());
+        widget_14->setSizePolicy(sizePolicy2);
+        verticalLayout_14 = new QVBoxLayout(widget_14);
+        verticalLayout_14->setObjectName(QStringLiteral("verticalLayout_14"));
+        label_13 = new QLabel(widget_14);
+        label_13->setObjectName(QStringLiteral("label_13"));
+
+        verticalLayout_14->addWidget(label_13);
+
+        txtPostErode = new QLineEdit(widget_14);
+        txtPostErode->setObjectName(QStringLiteral("txtPostErode"));
+        sizePolicy3.setHeightForWidth(txtPostErode->sizePolicy().hasHeightForWidth());
+        txtPostErode->setSizePolicy(sizePolicy3);
+        txtPostErode->setMaximumSize(QSize(40, 16777215));
+        txtPostErode->setMaxLength(3);
+
+        verticalLayout_14->addWidget(txtPostErode);
+
+
+        verticalLayout_9->addWidget(widget_14);
+
+        sldPostErode = new QSlider(widget_12);
+        sldPostErode->setObjectName(QStringLiteral("sldPostErode"));
+        sldPostErode->setOrientation(Qt::Horizontal);
+
+        verticalLayout_9->addWidget(sldPostErode);
+
+
+        horizontalLayout_5->addWidget(widget_12);
+
+        tabWidget->addTab(tab_4, QString());
+        tab_3 = new QWidget();
+        tab_3->setObjectName(QStringLiteral("tab_3"));
+        verticalLayout_3 = new QVBoxLayout(tab_3);
+        verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
+        image_calib = new ImageOutput(tab_3);
+        image_calib->setObjectName(QStringLiteral("image_calib"));
+        sizePolicy.setHeightForWidth(image_calib->sizePolicy().hasHeightForWidth());
+        image_calib->setSizePolicy(sizePolicy);
+
+        verticalLayout_3->addWidget(image_calib);
+
+        btnTogglePlay = new QPushButton(tab_3);
+        btnTogglePlay->setObjectName(QStringLiteral("btnTogglePlay"));
+
+        verticalLayout_3->addWidget(btnTogglePlay);
+
+        tabWidget->addTab(tab_3, QString());
+
+        verticalLayout_2->addWidget(tabWidget);
+
+        widget_2 = new QWidget(widget);
+        widget_2->setObjectName(QStringLiteral("widget_2"));
+        horizontalLayout_2 = new QHBoxLayout(widget_2);
+        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
+        widget_3 = new QWidget(widget_2);
+        widget_3->setObjectName(QStringLiteral("widget_3"));
+        sizePolicy2.setHeightForWidth(widget_3->sizePolicy().hasHeightForWidth());
+        widget_3->setSizePolicy(sizePolicy2);
+        verticalLayout_4 = new QVBoxLayout(widget_3);
+        verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
+        label_2 = new QLabel(widget_3);
+        label_2->setObjectName(QStringLiteral("label_2"));
+
+        verticalLayout_4->addWidget(label_2);
+
+        txtErrorDelta = new QLineEdit(widget_3);
+        txtErrorDelta->setObjectName(QStringLiteral("txtErrorDelta"));
+        sizePolicy3.setHeightForWidth(txtErrorDelta->sizePolicy().hasHeightForWidth());
+        txtErrorDelta->setSizePolicy(sizePolicy3);
+        txtErrorDelta->setMaximumSize(QSize(60, 16777215));
+        txtErrorDelta->setMaxLength(3);
+
+        verticalLayout_4->addWidget(txtErrorDelta);
+
+
+        horizontalLayout_2->addWidget(widget_3);
+
+        sldErrorDelta = new QSlider(widget_2);
+        sldErrorDelta->setObjectName(QStringLiteral("sldErrorDelta"));
+        sldErrorDelta->setMaximum(255);
+        sldErrorDelta->setOrientation(Qt::Horizontal);
+        sldErrorDelta->setInvertedAppearance(false);
+        sldErrorDelta->setInvertedControls(false);
+        sldErrorDelta->setTickPosition(QSlider::TicksBelow);
+        sldErrorDelta->setTickInterval(32);
+
+        horizontalLayout_2->addWidget(sldErrorDelta);
+
+
+        verticalLayout_2->addWidget(widget_2);
+
+
+        horizontalLayout->addWidget(widget);
+
+
+        retranslateUi(CalibDetectionWidget);
+
+        tabWidget->setCurrentIndex(0);
+
+
+        QMetaObject::connectSlotsByName(CalibDetectionWidget);
+    } // setupUi
+
+    void retranslateUi(QWidget *CalibDetectionWidget)
+    {
+        CalibDetectionWidget->setWindowTitle(QApplication::translate("CalibDetectionWidget", "Form", 0));
+        label->setText(QApplication::translate("CalibDetectionWidget", "Elikos detection output :", 0));
+        label_3->setText(QApplication::translate("CalibDetectionWidget", "Selected Color :", 0));
+        colRed->setText(QApplication::translate("CalibDetectionWidget", "Red", 0));
+        lblColRed->setText(QString());
+        colGreen->setText(QApplication::translate("CalibDetectionWidget", "Green", 0));
+        lblColGreen->setText(QString());
+        colWhite->setText(QApplication::translate("CalibDetectionWidget", "White", 0));
+        lblColWhite->setText(QString());
+        label_6->setText(QApplication::translate("CalibDetectionWidget", "Hue :", 0));
+        label_7->setText(QApplication::translate("CalibDetectionWidget", "Max :", 0));
+        txtHMax->setText(QApplication::translate("CalibDetectionWidget", "000", 0));
+        label_5->setText(QApplication::translate("CalibDetectionWidget", "Min :", 0));
+        txtHMin->setText(QApplication::translate("CalibDetectionWidget", "000", 0));
+        label_17->setText(QApplication::translate("CalibDetectionWidget", "Sat. :", 0));
+        label_18->setText(QApplication::translate("CalibDetectionWidget", "Max :", 0));
+        txtSMax->setText(QApplication::translate("CalibDetectionWidget", "000", 0));
+        label_19->setText(QApplication::translate("CalibDetectionWidget", "Min :", 0));
+        txtSMin->setText(QApplication::translate("CalibDetectionWidget", "000", 0));
+        label_14->setText(QApplication::translate("CalibDetectionWidget", "Val. :", 0));
+        label_15->setText(QApplication::translate("CalibDetectionWidget", "Max :", 0));
+        txtVMax->setText(QApplication::translate("CalibDetectionWidget", "000", 0));
+        label_16->setText(QApplication::translate("CalibDetectionWidget", "Min :", 0));
+        txtVMin->setText(QApplication::translate("CalibDetectionWidget", "000", 0));
+        label_12->setText(QApplication::translate("CalibDetectionWidget", "Pre erode :", 0));
+        txtPreErode->setText(QApplication::translate("CalibDetectionWidget", "000", 0));
+        label_20->setText(QApplication::translate("CalibDetectionWidget", "Dilate :", 0));
+        txtDilate->setText(QApplication::translate("CalibDetectionWidget", "000", 0));
+        label_13->setText(QApplication::translate("CalibDetectionWidget", "Post edode :", 0));
+        txtPostErode->setText(QApplication::translate("CalibDetectionWidget", "000", 0));
+        tabWidget->setTabText(tabWidget->indexOf(tab_4), QApplication::translate("CalibDetectionWidget", "Bars calib", 0));
+        btnTogglePlay->setText(QApplication::translate("CalibDetectionWidget", "TogglePlay", 0));
+        tabWidget->setTabText(tabWidget->indexOf(tab_3), QApplication::translate("CalibDetectionWidget", "Click calib", 0));
+        label_2->setText(QApplication::translate("CalibDetectionWidget", "Variation:", 0));
+        txtErrorDelta->setText(QApplication::translate("CalibDetectionWidget", "000", 0));
+    } // retranslateUi
+
+};
+
+namespace Ui {
+    class CalibDetectionWidget: public Ui_CalibDetectionWidget {};
+} // namespace Ui
+
+QT_END_NAMESPACE
+
+#endif // UI_CALIB_DETECTION_H

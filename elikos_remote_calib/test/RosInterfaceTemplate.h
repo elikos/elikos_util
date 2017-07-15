@@ -1,0 +1,6 @@
+#ifndef ROS_INTERFACE_TEMPLATES_H
+#define ROS_INTERFACE_TEMPLATES_H
+
+
+
+#endif

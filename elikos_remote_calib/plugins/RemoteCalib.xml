@@ -1,0 +1,12 @@
+<library path="lib/libelikos_remote_calib">
+    <class name="elikos_remote_calib/remote_calib" type="remote_calib::RemoteCalib" base_class_type="rqt_gui_cpp::Plugin">
+        <description>
+            Calibration d'elikos_detection
+        </description>
+        <qtgui>
+            <label>Calibration a distance</label>
+            <icon type="theme">system-help</icon>
+            <statustip>Un programme qui permet la calibration a distance du drone.</statustip>
+        </qtgui>
+    </class>
+</library>
