@@ -13,8 +13,8 @@
 
 #include <elikos_remote_calib_client/Calibrator.h>
 
-#include <elikos_remote_calib_client/GetConfigFiles.h>
-#include <elikos_remote_calib_client/FileManipulation.h>
+#include <elikos_msgs/GetConfigFiles.h>
+#include <elikos_msgs/FileManipulation.h>
 
 class CalibrationFileManager{
 public:

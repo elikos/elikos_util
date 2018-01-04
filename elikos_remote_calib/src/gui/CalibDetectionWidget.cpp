@@ -199,7 +199,7 @@ void CalibDetectionWidget::updatePostErode(int newVal){currentColor_->postDeflat
 /******************************************************************************
 * Le callback de la calibration.
 ******************************************************************************/
-void CalibDetectionWidget::calibCallback(const boost::shared_ptr< elikos_remote_calib_client::CalibDetection const > & msg)
+void CalibDetectionWidget::calibCallback(const boost::shared_ptr< elikos_msgs::CalibDetection const > & msg)
 {
     currentStatus_.red = msg->red;
     currentStatus_.green = msg->green;
@@ -223,7 +223,7 @@ void CalibDetectionWidget::update()
 void CalibDetectionWidget::updateColorPreview()
 {
     QImage* images[3] = {&redPreview_, &greenPreview_, &whitePreview_};
-    elikos_remote_calib_client::ColorDetectionInfo* colors[3] = {&currentStatus_.red, &currentStatus_.green, &currentStatus_.white};
+    elikos_msgs::ColorDetectionInfo* colors[3] = {&currentStatus_.red, &currentStatus_.green, &currentStatus_.white};
     QLabel* labels[3] = {ui_.lblColRed, ui_.lblColGreen, ui_.lblColWhite};
 
 

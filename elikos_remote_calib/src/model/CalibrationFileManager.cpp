@@ -15,27 +15,27 @@ CalibrationFileManager::CalibrationFileManager(const std::string& nodeName)
     , nodeName_(nodeName)
 {
     getConfigFilesClient_ 
-        = nodeHandle_.serviceClient<elikos_remote_calib_client::GetConfigFiles>(
+        = nodeHandle_.serviceClient<elikos_msgs::GetConfigFiles>(
             nodeName + '/' + 
             remote_calib::REMOTE_CALIB_NAMESPCACE + '/' + 
             remote_calib::GET_FILE_NAME_SERVICE_NAME
         );
     
     saveConfigFile_
-        = nodeHandle_.serviceClient<elikos_remote_calib_client::FileManipulation>(
+        = nodeHandle_.serviceClient<elikos_msgs::FileManipulation>(
             nodeName + '/' + 
             remote_calib::REMOTE_CALIB_NAMESPCACE + '/' + 
             remote_calib::SAVE_SERVICE_NAME
         );
 
     loadConfigFile_
-        = nodeHandle_.serviceClient<elikos_remote_calib_client::FileManipulation>(
+        = nodeHandle_.serviceClient<elikos_msgs::FileManipulation>(
             nodeName + '/' + 
             remote_calib::REMOTE_CALIB_NAMESPCACE + '/' + 
             remote_calib::LOAD_SERVICE_NAME
         );
     deleteConfigFile_
-        = nodeHandle_.serviceClient<elikos_remote_calib_client::FileManipulation>(
+        = nodeHandle_.serviceClient<elikos_msgs::FileManipulation>(
             nodeName + '/' + 
             remote_calib::REMOTE_CALIB_NAMESPCACE + '/' + 
             remote_calib::DELETE_FILE_SERVICE_NAME
@@ -53,7 +53,7 @@ CalibrationFileManager::CalibrationFileManager(const std::string& nodeName)
 *******************************************************************************/
 bool CalibrationFileManager::saveCalibration(const std::string& fileName)
 {
-    elikos_remote_calib_client::FileManipulation saveFile;
+    elikos_msgs::FileManipulation saveFile;
     saveFile.request.fileName = fileName;
 
     if(saveConfigFile_.call(saveFile)){
@@ -72,7 +72,7 @@ bool CalibrationFileManager::saveCalibration(const std::string& fileName)
 *******************************************************************************/
 bool CalibrationFileManager::loadCalibration(const std::string& fileName)
 {
-    elikos_remote_calib_client::FileManipulation loadFile;
+    elikos_msgs::FileManipulation loadFile;
     loadFile.request.fileName = fileName;
 
     if(loadConfigFile_.call(loadFile)){
@@ -90,7 +90,7 @@ bool CalibrationFileManager::loadCalibration(const std::string& fileName)
 void CalibrationFileManager::getCalibrationFileNames(std::vector<std::string>& fileNames)
 {
     fileNames.clear();
-    elikos_remote_calib_client::GetConfigFiles cfgFiles;
+    elikos_msgs::GetConfigFiles cfgFiles;
     if(getConfigFilesClient_.call(cfgFiles)){
         fileNames = cfgFiles.response.fileNames;
     }
@@ -104,7 +104,7 @@ void CalibrationFileManager::getCalibrationFileNames(std::vector<std::string>& f
 *******************************************************************************/
 bool CalibrationFileManager::deleteCalibrationFile(const std::string& fileName)
 {
-    elikos_remote_calib_client::FileManipulation deleteFile;
+    elikos_msgs::FileManipulation deleteFile;
     deleteFile.request.fileName = fileName;
 
     if(deleteConfigFile_.call(deleteFile)){

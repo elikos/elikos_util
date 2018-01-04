@@ -15,7 +15,7 @@
 
 #include <elikos_remote_calib/ui_calib_detection.h>
 #include <elikos_remote_calib/gui/NodeCalibWidget.h>
-#include <elikos_remote_calib_client/CalibDetection.h>
+#include <elikos_msgs/CalibDetection.h>
 
 
 namespace remote_calib{
@@ -42,7 +42,7 @@ private:
     int value_;
 };
 
-class CalibDetectionWidget : public NodeCalibWidget<elikos_remote_calib_client::CalibDetection>
+class CalibDetectionWidget : public NodeCalibWidget<elikos_msgs::CalibDetection>
 {
     Q_OBJECT
 public:
@@ -67,7 +67,7 @@ private slots:
 
 protected:
     //Ros
-    virtual void calibCallback(const boost::shared_ptr< elikos_remote_calib_client::CalibDetection const > &);
+    virtual void calibCallback(const boost::shared_ptr< elikos_msgs::CalibDetection const > &);
     //GUI
     virtual void update();
 
@@ -91,8 +91,8 @@ private:
     double errorDeltaMultiplierV = 2;
 
 
-    elikos_remote_calib_client::CalibDetection currentStatus_;
-    elikos_remote_calib_client::ColorDetectionInfo* currentColor_;
+    elikos_msgs::CalibDetection currentStatus_;
+    elikos_msgs::ColorDetectionInfo* currentColor_;
 };
 
 }//end namespace remote_calib
